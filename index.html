@@ -1,80 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon - Crochet Shop</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine.js"></script>
-</head>
-<body class="bg-gray-50">
-    <div class="min-h-screen flex flex-col items-center justify-center p-4" x-data="{ email: '', submitted: false, error: '' }">
-        <div class="max-w-md w-full space-y-8 text-center">
-            <!-- Logo Placeholder -->
-            <div class="text-6xl mb-4">🧶</div>
-            
-            <h1 class="text-4xl font-bold text-gray-900 mb-2">
-                Something Cozy Is Coming Soon
-            </h1>
-            
-            <p class="text-gray-600 mb-8">
-                We're crafting a special place for crochet lovers. Join our waiting list for exclusive access and special offers.
-            </p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loop Delicado | Crochet Inspirations & Ideas</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: linear-gradient(to bottom, #fffaf2, #fcf1ff);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+      }
 
-            <!-- Benefits Grid -->
-            <div class="grid grid-cols-2 gap-4 mb-8">
-                <div class="p-4 bg-white rounded-lg shadow-sm">
-                    <h3 class="font-semibold">🎯 Early Access</h3>
-                    <p class="text-sm text-gray-600">Special launch discounts</p>
-                </div>
-                <div class="p-4 bg-white rounded-lg shadow-sm">
-                    <h3 class="font-semibold">💝 Free Patterns</h3>
-                    <p class="text-sm text-gray-600">Exclusive designs</p>
-                </div>
-                <div class="p-4 bg-white rounded-lg shadow-sm">
-                    <h3 class="font-semibold">📚 Tutorials</h3>
-                    <p class="text-sm text-gray-600">Step-by-step guides</p>
-                </div>
-                <div class="p-4 bg-white rounded-lg shadow-sm">
-                    <h3 class="font-semibold">🌟 Community</h3>
-                    <p class="text-sm text-gray-600">Join our VIP group</p>
-                </div>
-            </div>
+      .container {
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+      }
 
-            <!-- Email Form -->
-            <div x-show="!submitted">
-                <form class="space-y-4" @submit.prevent="submitted = true">
-                    <input 
-                        type="email" 
-                        x-model="email"
-                        placeholder="Enter your email address"
-                        class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300"
-                        required
-                    >
-                    <button 
-                        type="submit"
-                        class="w-full py-3 px-6 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
-                    >
-                        Notify Me
-                    </button>
-                </form>
-            </div>
+      .profile {
+        margin-bottom: 30px;
+      }
 
-            <!-- Success Message -->
-            <div x-show="submitted" class="bg-green-50 p-4 rounded-lg text-green-800">
-                Thank you for subscribing! We'll keep you posted about our launch. 💖
-            </div>
+      .profile-img {
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        margin: 0 auto 15px;
+        display: block;
+        background: #634a68;
+      }
 
-            <!-- Footer -->
-            <div class="mt-8 text-sm text-gray-500">
-                Follow us on social media:
-                <div class="flex justify-center space-x-4 mt-4">
-                    <a href="#" class="hover:text-purple-600">Instagram</a>
-                    <a href="#" class="hover:text-purple-600">Pinterest</a>
-                    <a href="#" class="hover:text-purple-600">Facebook</a>
-                </div>
-            </div>
-        </div>
+      .name {
+        color: #222;
+        font-size: 2rem;
+        margin: 10px 0;
+      }
+
+      .bio {
+        color: rgb(217, 144, 246);
+        margin-bottom: 30px;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.02rem;
+      }
+
+      .links {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 0 20px;
+      }
+
+      .link {
+        background: #fff;
+        color: rgb(194, 97, 233);
+        box-shadow: 2px 2px 6px#97649953;
+        padding: 15px 20px;
+        border-radius: 8px;
+        border: 1px solid rgb(217, 144, 246);
+        text-decoration: none;
+        transition: all 0.2s ease;
+        font-size: 1.125rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        height: 2.5rem;
+      }
+
+      .link:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+        scale: 1.05;
+      }
+      .icon {
+        width: auto;
+        height: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="profile">
+        <img
+          src="/loopdelicado.jpg"
+          alt="Profile Picture"
+          class="profile-img"
+        />
+        <h1 class="name">Loop Delicado</h1>
+        <p class="bio">♥ Crochet Inspirations With Love ♥</p>
+      </div>
+
+      <div class="links">
+        <a
+          href="https://instagram.com/loopdelicado"
+          class="link"
+          target="_blank"
+        >
+          <img class="icon" src="/images/instagram.png" alt="Instagram logo" />
+
+          Instagram</a
+        >
+
+        <a
+          href="https://youtube.com/@loopdelicado"
+          class="link"
+          target="_blank"
+        >
+          <img style="height: 1.6rem" src="/Youtube.png" alt="YouTube logo" />
+
+          YouTube</a
+        >
+        <a
+          href="https://pinterest.com/loopdelicado/"
+          class="link"
+          target="_blank"
+        >
+          <img class="icon" src="/Pinterest.png" alt="pinterest logo" />
+          Pinterest</a
+        >
+        <a href="https://ko-fi.com/loopdelicado" class="link" target="_blank">
+          <img class="icon" src="/ko-fi.svg" alt="ko-fi logo" />
+          Suport my work
+        </a>
+      </div>
     </div>
-</body>
+  </body>
 </html>
